@@ -1,674 +1,534 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>测试一下网站</title>
-	<meta name="description" content="测试一下网站">
+    <meta charset="UTF-8">
 	<meta name="google-site-verification" content="FNQOf5fQCcxjlyI4EslUbXXeCHIHmSwtMdrGVXIZ5pM" />
-	<script src="https://seo.box/static/css/tailwind.3.4.3.js"></script>
-	<link rel="shortcut icon" href="./favicon.ico" />
-	<link rel="canonical" href="https://seo.box/demo.html"/>
-	<style type="text/css">
-	
-	</style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>舞蹈课程目录</title>
+    <style>
+        :root {
+            --primary-color: #333;
+            --secondary-color: #f8f8f8;
+            --accent-color: #4CAF50;
+            --text-color: #333;
+            --border-color: #ddd;
+        }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: var(--primary-color);
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: var(--primary-color);
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .navbar a:hover, .navbar a.active {
+            background-color: var(--accent-color);
+        }
+        .category {
+            display: none;
+        }
+        .category.active {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: var(--secondary-color);
+        }
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>舞蹈课程目录</h1>
 
+        <nav class="navbar">
+            <a href="#" class="nav-link active" data-target="CHTTO">CHTTO</a>
+            <a href="#" class="nav-link" data-target="HIPHOP">HIPHOP</a>
+            <a href="#" class="nav-link" data-target="SOUL">SOUL</a>
+        </nav>
 
-<!-- Navbar Dropdown 2 rows -->
-<section>
-<div class="h-auto w-screen bg-[#020d24] py-2 text-white [border-bottom:1px_solid_rgb(91,_103,_130)]">
-  <!-- NAVBAR -->
-  <nav class="font-inter mx-auto h-auto w-full max-w-[1600px] lg:relative lg:top-0" x-data="{isOpen: false, menuOne:false}">
-    <!-- CONTAINER -->
-    <div class="flex flex-col px-6 py-6 lg:flex-row lg:items-center lg:justify-between lg:px-10 lg:py-4 xl:px-20">
-      <!-- LOGO - YOU CAN REPLACE THIS -->
-      <a href="#">
-        <img src="https://assets.website-files.com/647e296b89c00bcfafccf696/647f03f3e434e2326e8af190_%5BA%5D--Navbar%20Brand%20(1).png" alt="" class="inline-block max-h-6 max-w-full" />
-      </a>
-      <!-- MENU CONTENT 2 -->
-      <div class="mt-10 flex flex-col items-start space-y-8 lg:mt-0 lg:flex lg:flex-row lg:items-center lg:space-x-3 lg:space-y-0" x-bind:class="isOpen ? 'show' : 'hidden'">
-        <a href="https://flowspark-quantumcal.webflow.io/" class="px-5 py-2 font-semibold text-[#5b6782] transition hover:text-white max-[991px]:block md:px-10 lg:px-4">Home</a>
-        <a href="https://flowspark-quantumcal.webflow.io/pricing" class="px-5 py-2 font-semibold text-[#5b6782] transition hover:text-white max-[991px]:block md:px-10 lg:px-4">Pricing</a>
-        <a href="https://flowspark-quantumcal.webflow.io/blog" class="px-5 py-2 font-semibold text-[#5b6782] transition hover:text-white max-[991px]:block md:px-10 lg:px-4">Blog</a>
-        <a href="https://build.flowspark.co/template" target="_blank" class="px-5 py-2 font-semibold text-[#5b6782] transition hover:text-white max-[991px]:block md:px-10 lg:px-4">Templates</a>
-        <a href="https://flowspark.co/designs" class="2 ml-5 rounded-full bg-[#081631] px-6 py-4 text-center font-semibold text-white transition hover:bg-[#2d6ae0] md:ml-10 lg:ml-4">Get Custom Designs</a>
-      </div>
-      <!-- BURGER MENU -->
-      <a href="#" class="absolute right-5 lg:hidden" x-on:click.prevent="isOpen = !isOpen">
-        <svg width="1.25rem" height="1rem" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19 7H1C0.447715 7 0 7.44772 0 8C0 8.55228 0.447715 9 1 9H19C19.5523 9 20 8.55228 20 8C20 7.44772 19.5523 7 19 7Z" fill="currentColor"></path>
-          <path d="M19 0H7C6.44772 0 6 0.447715 6 1C6 1.55228 6.44772 2 7 2H19C19.5523 2 20 1.55228 20 1C20 0.447715 19.5523 0 19 0Z" fill="currentColor"></path>
-          <path d="M19 14H11C10.4477 14 10 14.4477 10 15C10 15.5523 10.4477 16 11 16H19C19.5523 16 20 15.5523 20 15C20 14.4477 19.5523 14 19 14Z" fill="currentColor"></path>
-        </svg>
-      </a>
+        <div id="CHTTO" class="category active">
+            <h2>CHTTO 课程</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>课程链接</th>
+                        <th>课程顺序</th>
+                        <th>课程集数</th>
+                        <th>视频链接</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/467619.html</a></td><td>1</td><td>1</td><td><a href="#">https://player.vimeo.com/video/470894491</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/467619.html</a></td><td>1</td><td>2</td><td><a href="#">https://player.vimeo.com/video/470894755</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/467619.html</a></td><td>1</td><td>3</td><td><a href="#">https://player.vimeo.com/video/470896121</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/467619.html</a></td><td>1</td><td>4</td><td><a href="#">https://player.vimeo.com/video/470896303</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/472390.html</a></td><td>2</td><td>1</td><td><a href="#">https://player.vimeo.com/video/484657206</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/472390.html</a></td><td>2</td><td>2</td><td><a href="#">https://player.vimeo.com/video/492355171</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/472390.html</a></td><td>2</td><td>3</td><td><a href="#">https://player.vimeo.com/video/501773497</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473969.html</a></td><td>3</td><td>1</td><td><a href="#">https://player.vimeo.com/video/635006197</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473969.html</a></td><td>3</td><td>2</td><td><a href="#">https://player.vimeo.com/video/635020297</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473969.html</a></td><td>3</td><td>3</td><td><a href="#">https://player.vimeo.com/video/635037793</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473969.html</a></td><td>3</td><td>4</td><td><a href="#">https://player.vimeo.com/video/635044703</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473968.html</a></td><td>4</td><td>1</td><td><a href="#">https://player.vimeo.com/video/636165049</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473968.html</a></td><td>4</td><td>2</td><td><a href="#">https://player.vimeo.com/video/636214932</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473968.html</a></td><td>4</td><td>3</td><td><a href="#">https://player.vimeo.com/video/636805904</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473968.html</a></td><td>4</td><td>4</td><td><a href="#">https://player.vimeo.com/video/636152217</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/480109.html</a></td><td>5</td><td>1</td><td><a href="#">https://player.vimeo.com/video/636983994</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/480109.html</a></td><td>5</td><td>2</td><td><a href="#">https://player.vimeo.com/video/636997232</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/480109.html</a></td><td>5</td><td>3</td><td><a href="#">https://player.vimeo.com/video/636992660</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/487934.html</a></td><td>6</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637307471</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/487934.html</a></td><td>6</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637332597</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/487934.html</a></td><td>6</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637329662</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/487038.html</a></td><td>7</td><td>1</td><td><a href="#">https://player.vimeo.com/video/511862711</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/487038.html</a></td><td>7</td><td>2</td><td><a href="#">https://player.vimeo.com/video/511884969</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/487038.html</a></td><td>7</td><td>3</td><td><a href="#">https://player.vimeo.com/video/511885320</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493005.html</a></td><td>8</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637336296</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493005.html</a></td><td>8</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637335755</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493005.html</a></td><td>8</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637382867</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493005.html</a></td><td>8</td><td>4</td><td><a href="#">https://player.vimeo.com/video/637378064</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493005.html</a></td><td>8</td><td>5</td><td><a href="#">https://player.vimeo.com/video/637381427</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/501468.html</a></td><td>9</td><td>1</td><td><a href="#">https://player.vimeo.com/video/545779941</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/501468.html</a></td><td>9</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637422953</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/501468.html</a></td><td>9</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637440220</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/501468.html</a></td><td>9</td><td>4</td><td><a href="#">https://player.vimeo.com/video/637436967</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/508233.html</a></td><td>10</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637747193</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/508233.html</a></td><td>10</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637744350</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/508233.html</a></td><td>10</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637798445</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/508233.html</a></td><td>10</td><td>4</td><td><a href="#">https://player.vimeo.com/video/637795459</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/505254.html</a></td><td>11</td><td>1</td><td><a href="#"></a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/505254.html</a></td><td>11</td><td>2</td><td><a href="#"></a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/505254.html</a></td><td>11</td><td>3</td><td><a href="#"></a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/515104.html</a></td><td>12</td><td>1</td><td><a href="#">https://player.vimeo.com/video/638083965</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/515104.html</a></td><td>12</td><td>2</td><td><a href="#">https://player.vimeo.com/video/638082430</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/515104.html</a></td><td>12</td><td>3</td><td><a href="#">https://player.vimeo.com/video/638096431</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/515104.html</a></td><td>12</td><td>4</td><td><a href="#">https://player.vimeo.com/video/638133311</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523920.html</a></td><td>13</td><td>1</td><td><a href="#">https://player.vimeo.com/video/638511482</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523920.html</a></td><td>13</td><td>2</td><td><a href="#">https://player.vimeo.com/video/638627826</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523920.html</a></td><td>13</td><td>3</td><td><a href="#">https://player.vimeo.com/video/639009352</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523920.html</a></td><td>13</td><td>4</td><td><a href="#">https://player.vimeo.com/video/639351553</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/531291.html</a></td><td>14</td><td>1</td><td><a href="#">https://player.vimeo.com/video/639401968</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/531291.html</a></td><td>14</td><td>2</td><td><a href="#">https://player.vimeo.com/video/639441445</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/531291.html</a></td><td>14</td><td>3</td><td><a href="#">https://player.vimeo.com/video/639826258</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/531291.html</a></td><td>14</td><td>4</td><td><a href="#">https://player.vimeo.com/video/639849627</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/531291.html</a></td><td>14</td><td>5</td><td><a href="#">https://player.vimeo.com/video/639939752</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540519.html</a></td><td>15</td><td>1</td><td><a href="#">https://player.vimeo.com/video/622268618</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540519.html</a></td><td>15</td><td>2</td><td><a href="#">https://player.vimeo.com/video/622269899</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540519.html</a></td><td>15</td><td>3</td><td><a href="#">https://player.vimeo.com/video/622271038</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540519.html</a></td><td>15</td><td>4</td><td><a href="#">https://player.vimeo.com/video/619685212</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/529681.html</a></td><td>16</td><td>1</td><td><a href="#">https://player.vimeo.com/video/595043429</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/529681.html</a></td><td>16</td><td>2</td><td><a href="#">https://player.vimeo.com/video/583630946</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/529681.html</a></td><td>16</td><td>3</td><td><a href="#">https://player.vimeo.com/video/583630162</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/547939.html</a></td><td>17</td><td>1</td><td><a href="#">https://player.vimeo.com/video/626281569</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/547939.html</a></td><td>17</td><td>2</td><td><a href="#">https://player.vimeo.com/video/630608176</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/547939.html</a></td><td>17</td><td>3</td><td><a href="#">https://player.vimeo.com/video/630830121</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/547939.html</a></td><td>17</td><td>4</td><td><a href="#">https://player.vimeo.com/video/637828421</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/555331.html</a></td><td>18</td><td>1</td><td><a href="#">https://player.vimeo.com/video/639820832</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/555331.html</a></td><td>18</td><td>2</td><td><a href="#">https://player.vimeo.com/video/642158054</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/555331.html</a></td><td>18</td><td>3</td><td><a href="#">https://player.vimeo.com/video/644192803</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/555331.html</a></td><td>18</td><td>4</td><td><a href="#">https://player.vimeo.com/video/646707278</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/559817.html</a></td><td>19</td><td>1</td><td><a href="#">https://player.vimeo.com/video/646842168</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/559817.html</a></td><td>19</td><td>2</td><td><a href="#">https://player.vimeo.com/video/647285163</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/559817.html</a></td><td>19</td><td>3</td><td><a href="#">https://player.vimeo.com/video/647284177</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/566938.html</a></td><td>20</td><td>1</td><td><a href="#">https://player.vimeo.com/video/655312166</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/566938.html</a></td><td>20</td><td>2</td><td><a href="#">https://player.vimeo.com/video/668060721</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/566938.html</a></td><td>20</td><td>3</td><td><a href="#">https://player.vimeo.com/video/659500299</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/572787.html</a></td><td>21</td><td>1</td><td><a href="#">https://player.vimeo.com/video/662220070</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/572787.html</a></td><td>21</td><td>2</td><td><a href="#">https://player.vimeo.com/video/663280686</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/572787.html</a></td><td>21</td><td>3</td><td><a href="#"></a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/572787.html</a></td><td>21</td><td>4</td><td><a href="#">https://player.vimeo.com/video/670066912</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/580553.html</a></td><td>22</td><td>1</td><td><a href="#">https://player.vimeo.com/video/684068357</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/580553.html</a></td><td>22</td><td>2</td><td><a href="#">https://player.vimeo.com/video/678181610</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/580553.html</a></td><td>22</td><td>3</td><td><a href="#">https://player.vimeo.com/video/678501090</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/580553.html</a></td><td>22</td><td>4</td><td><a href="#">https://player.vimeo.com/video/678595063</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/580553.html</a></td><td>22</td><td>5</td><td><a href="#">https://player.vimeo.com/video/683249811</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590326.html</a></td><td>23</td><td>1</td><td><a href="#">https://player.vimeo.com/video/692915917</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590326.html</a></td><td>23</td><td>2</td><td><a href="#">https://player.vimeo.com/video/699294540</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590326.html</a></td><td>23</td><td>3</td><td><a href="#">https://player.vimeo.com/video/701514812</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590326.html</a></td><td>23</td><td>4</td><td><a href="#">https://player.vimeo.com/video/692936516</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/584982.html</a></td><td>24</td><td>1</td><td><a href="#">https://player.vimeo.com/video/678978306</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/584982.html</a></td><td>24</td><td>2</td><td><a href="#">https://player.vimeo.com/video/679053793</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/584982.html</a></td><td>24</td><td>3</td><td><a href="#">https://player.vimeo.com/video/679113325</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/598202.html</a></td><td>25</td><td>1</td><td><a href="#">https://player.vimeo.com/video/698201396</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/598202.html</a></td><td>25</td><td>2</td><td><a href="#">https://player.vimeo.com/video/698206375</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/598202.html</a></td><td>25</td><td>3</td><td><a href="#">https://player.vimeo.com/video/711482086</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/598202.html</a></td><td>25</td><td>4</td><td><a href="#">https://player.vimeo.com/video/703129046</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/608092.html</a></td><td>26</td><td>1</td><td><a href="#">https://player.vimeo.com/video/712733283</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/608092.html</a></td><td>26</td><td>2</td><td><a href="#">https://player.vimeo.com/video/712741360</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/608092.html</a></td><td>26</td><td>3</td><td><a href="#">https://player.vimeo.com/video/723207877</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/608092.html</a></td><td>26</td><td>4</td><td><a href="#">https://player.vimeo.com/video/725511064</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616022.html</a></td><td>27</td><td>1</td><td><a href="#">https://player.vimeo.com/video/716714730</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616022.html</a></td><td>27</td><td>2</td><td><a href="#">https://player.vimeo.com/video/722098009</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616022.html</a></td><td>27</td><td>3</td><td><a href="#">https://player.vimeo.com/video/722102622</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616022.html</a></td><td>27</td><td>4</td><td><a href="#">https://player.vimeo.com/video/725560540</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/624718.html</a></td><td>28</td><td>1</td><td><a href="#">https://player.vimeo.com/video/732001715</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/624718.html</a></td><td>28</td><td>2</td><td><a href="#">https://player.vimeo.com/video/755444305</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/624718.html</a></td><td>28</td><td>3</td><td><a href="#">https://player.vimeo.com/video/755868546</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/618564.html</a></td><td>29</td><td>1</td><td><a href="#">https://player.vimeo.com/video/716391239</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/618564.html</a></td><td>29</td><td>2</td><td><a href="#">https://player.vimeo.com/video/717469105</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/618564.html</a></td><td>29</td><td>3</td><td><a href="#">https://player.vimeo.com/video/717469293</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/633295.html</a></td><td>30</td><td>1</td><td><a href="#">https://player.vimeo.com/video/747986667</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/633295.html</a></td><td>30</td><td>2</td><td><a href="#">https://player.vimeo.com/video/747963958</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/633295.html</a></td><td>30</td><td>3</td><td><a href="#">https://player.vimeo.com/video/750214973</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/633295.html</a></td><td>30</td><td>4</td><td><a href="#">https://player.vimeo.com/video/753695598</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/633295.html</a></td><td>30</td><td>5</td><td><a href="#">https://player.vimeo.com/video/755392796</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/643937.html</a></td><td>31</td><td>1</td><td><a href="#">https://player.vimeo.com/video/759003311</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/643937.html</a></td><td>31</td><td>2</td><td><a href="#">https://player.vimeo.com/video/761327767</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/643937.html</a></td><td>31</td><td>3</td><td><a href="#">https://player.vimeo.com/video/762552113</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/643937.html</a></td><td>31</td><td>4</td><td><a href="#">https://player.vimeo.com/video/765618951</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652678.html</a></td><td>32</td><td>1</td><td><a href="#">https://player.vimeo.com/video/767227999</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652678.html</a></td><td>32</td><td>2</td><td><a href="#">https://player.vimeo.com/video/769800114</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652678.html</a></td><td>32</td><td>3</td><td><a href="#">https://player.vimeo.com/video/772421925</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652678.html</a></td><td>32</td><td>4</td><td><a href="#">https://player.vimeo.com/video/778019087</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/646671.html</a></td><td>33</td><td>1</td><td><a href="#">https://player.vimeo.com/video/753212090</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/646671.html</a></td><td>33</td><td>2</td><td><a href="#">https://player.vimeo.com/video/763234714</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/646671.html</a></td><td>33</td><td>3</td><td><a href="#">https://player.vimeo.com/video/763260318</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/661423.html</a></td><td>34</td><td>1</td><td><a href="#">https://player.vimeo.com/video/778062451</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/661423.html</a></td><td>34</td><td>2</td><td><a href="#">https://player.vimeo.com/video/780246332</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/661423.html</a></td><td>34</td><td>3</td><td><a href="#">https://player.vimeo.com/video/782403823</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/661423.html</a></td><td>34</td><td>4</td><td><a href="#">https://player.vimeo.com/video/783826649</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/674483.html</a></td><td>35</td><td>1</td><td><a href="#">https://player.vimeo.com/video/789636410</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/674483.html</a></td><td>35</td><td>2</td><td><a href="#">https://player.vimeo.com/video/791783262</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/674483.html</a></td><td>35</td><td>3</td><td><a href="#">https://player.vimeo.com/video/784053882</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689390.html</a></td><td>36</td><td>1</td><td><a href="#">https://player.vimeo.com/video/786864611</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689390.html</a></td><td>36</td><td>2</td><td><a href="#">https://player.vimeo.com/video/786864743</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689390.html</a></td><td>36</td><td>3</td><td><a href="#">https://player.vimeo.com/video/786864906</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/690017.html</a></td><td>37</td><td>1</td><td><a href="#">https://player.vimeo.com/video/802588296</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/690017.html</a></td><td>37</td><td>2</td><td><a href="#">https://player.vimeo.com/video/803868023</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/690017.html</a></td><td>37</td><td>3</td><td><a href="#">https://player.vimeo.com/video/807234183</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/690017.html</a></td><td>37</td><td>4</td><td><a href="#">https://player.vimeo.com/video/809292361</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/700899.html</a></td><td>38</td><td>1</td><td><a href="#">https://player.vimeo.com/video/812403386</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/700899.html</a></td><td>38</td><td>2</td><td><a href="#">https://player.vimeo.com/video/812407905</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/700899.html</a></td><td>38</td><td>3</td><td><a href="#">https://player.vimeo.com/video/812668605</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/700899.html</a></td><td>38</td><td>4</td><td><a href="#">https://player.vimeo.com/video/812674324</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/688256.html</a></td><td>39</td><td>1</td><td><a href="#">https://player.vimeo.com/video/827918675</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/688256.html</a></td><td>39</td><td>2</td><td><a href="#">https://player.vimeo.com/video/827921890</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/688256.html</a></td><td>39</td><td>3</td><td><a href="#">https://player.vimeo.com/video/827926967</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/712088.html</a></td><td>40</td><td>1</td><td><a href="#">https://player.vimeo.com/video/824621065</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/712088.html</a></td><td>40</td><td>2</td><td><a href="#">https://player.vimeo.com/video/826148433</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/712088.html</a></td><td>40</td><td>3</td><td><a href="#">https://player.vimeo.com/video/828316005</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/712088.html</a></td><td>40</td><td>4</td><td><a href="#">https://player.vimeo.com/video/831092872</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720797.html</a></td><td>41</td><td>1</td><td><a href="#">https://player.vimeo.com/video/831115490</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720797.html</a></td><td>41</td><td>2</td><td><a href="#">https://player.vimeo.com/video/831115995</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720797.html</a></td><td>41</td><td>3</td><td><a href="#">https://player.vimeo.com/video/831117485</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720797.html</a></td><td>41</td><td>4</td><td><a href="#">https://player.vimeo.com/video/831118057</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720797.html</a></td><td>41</td><td>5</td><td><a href="#">https://player.vimeo.com/video/831118229</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720844.html</a></td><td>42</td><td>1</td><td><a href="#">https://player.vimeo.com/video/843128121</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720844.html</a></td><td>42</td><td>2</td><td><a href="#">https://player.vimeo.com/video/845479349</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720844.html</a></td><td>42</td><td>3</td><td><a href="#">https://player.vimeo.com/video/847864964</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720844.html</a></td><td>42</td><td>4</td><td><a href="#">https://player.vimeo.com/video/850833707</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720906.html</a></td><td>43</td><td>1</td><td><a href="#">https://player.vimeo.com/video/854556253</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720906.html</a></td><td>43</td><td>2</td><td><a href="#">https://player.vimeo.com/video/857427833</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720906.html</a></td><td>43</td><td>3</td><td><a href="#">https://player.vimeo.com/video/861583978</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720906.html</a></td><td>43</td><td>4</td><td><a href="#">https://player.vimeo.com/video/861915757</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720973.html</a></td><td>44</td><td>1</td><td><a href="#">https://player.vimeo.com/video/861981461</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720973.html</a></td><td>44</td><td>2</td><td><a href="#">https://player.vimeo.com/video/867011795</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720973.html</a></td><td>44</td><td>3</td><td><a href="#">https://player.vimeo.com/video/867032314</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720973.html</a></td><td>44</td><td>4</td><td><a href="#">https://player.vimeo.com/video/869524806</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720883.html</a></td><td>45</td><td>1</td><td><a href="#">https://player.vimeo.com/video/843432332</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720883.html</a></td><td>45</td><td>2</td><td><a href="#">https://player.vimeo.com/video/852565162</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720883.html</a></td><td>45</td><td>3</td><td><a href="#">https://player.vimeo.com/video/862425295</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721011.html</a></td><td>46</td><td>1</td><td><a href="#">https://player.vimeo.com/video/868192418</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721011.html</a></td><td>46</td><td>2</td><td><a href="#">https://player.vimeo.com/video/868192529</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721011.html</a></td><td>46</td><td>3</td><td><a href="#">https://player.vimeo.com/video/868192593</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721011.html</a></td><td>46</td><td>4</td><td><a href="#">https://player.vimeo.com/video/868192663</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721050.html</a></td><td>47</td><td>1</td><td><a href="#">https://player.vimeo.com/video/868188276</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721050.html</a></td><td>47</td><td>2</td><td><a href="#">https://player.vimeo.com/video/882732703</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721050.html</a></td><td>47</td><td>3</td><td><a href="#">https://player.vimeo.com/video/884777309</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721050.html</a></td><td>47</td><td>4</td><td><a href="#">https://player.vimeo.com/video/887273282</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721080.html</a></td><td>48</td><td>1</td><td><a href="#">https://player.vimeo.com/video/895209034</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721080.html</a></td><td>48</td><td>2</td><td><a href="#">https://player.vimeo.com/video/895228936</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721080.html</a></td><td>48</td><td>3</td><td><a href="#">https://player.vimeo.com/video/899771525</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721080.html</a></td><td>48</td><td>4</td><td><a href="#">https://player.vimeo.com/video/899779841</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721115.html</a></td><td>49</td><td>1</td><td><a href="#">https://player.vimeo.com/video/900002710</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721115.html</a></td><td>49</td><td>2</td><td><a href="#">https://player.vimeo.com/video/902102540</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721115.html</a></td><td>49</td><td>3</td><td><a href="#">https://player.vimeo.com/video/899764384</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721115.html</a></td><td>49</td><td>4</td><td><a href="#">https://player.vimeo.com/video/899764572</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721032.html</a></td><td>50</td><td>1</td><td><a href="#">https://player.vimeo.com/video/881115471</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721032.html</a></td><td>50</td><td>2</td><td><a href="#">https://player.vimeo.com/video/890458129</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721032.html</a></td><td>50</td><td>3</td><td><a href="#">https://player.vimeo.com/video/900115500</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721153.html</a></td><td>51</td><td>1</td><td><a href="#">https://player.vimeo.com/video/907421557</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721153.html</a></td><td>51</td><td>2</td><td><a href="#">https://player.vimeo.com/video/907421738</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721153.html</a></td><td>51</td><td>3</td><td><a href="#">https://player.vimeo.com/video/907421928</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721153.html</a></td><td>51</td><td>4</td><td><a href="#">https://player.vimeo.com/video/907422034</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721153.html</a></td><td>51</td><td>5</td><td><a href="#">https://player.vimeo.com/video/907422435</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721191.html</a></td><td>52</td><td>1</td><td><a href="#">https://player.vimeo.com/video/920323046</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721191.html</a></td><td>52</td><td>2</td><td><a href="#">https://player.vimeo.com/video/922928549</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721191.html</a></td><td>52</td><td>3</td><td><a href="#">https://player.vimeo.com/video/923716694</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721191.html</a></td><td>52</td><td>4</td><td><a href="#">https://player.vimeo.com/video/924467431</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721211.html</a></td><td>53</td><td>1</td><td><a href="#">https://player.vimeo.com/video/928709567</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721211.html</a></td><td>53</td><td>2</td><td><a href="#">https://player.vimeo.com/video/928709966</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721211.html</a></td><td>53</td><td>3</td><td><a href="#">https://player.vimeo.com/video/928710099</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721240.html</a></td><td>54</td><td>1</td><td><a href="#">https://player.vimeo.com/video/941782261</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721240.html</a></td><td>54</td><td>2</td><td><a href="#">https://player.vimeo.com/video/944272209</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721240.html</a></td><td>54</td><td>3</td><td><a href="#">https://player.vimeo.com/video/946005457</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721240.html</a></td><td>54</td><td>4</td><td><a href="#">https://player.vimeo.com/video/949111194</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721240.html</a></td><td>54</td><td>5</td><td><a href="#">https://player.vimeo.com/video/951537575</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721273.html</a></td><td>55</td><td>1</td><td><a href="#">https://player.vimeo.com/video/952846116</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721273.html</a></td><td>55</td><td>2</td><td><a href="#">https://player.vimeo.com/video/957104368</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721273.html</a></td><td>55</td><td>3</td><td><a href="#">https://player.vimeo.com/video/962230395</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721273.html</a></td><td>55</td><td>4</td><td><a href="#">https://player.vimeo.com/video/969368849</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721228.html</a></td><td>56</td><td>1</td><td><a href="#">https://player.vimeo.com/video/929450934</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721228.html</a></td><td>56</td><td>2</td><td><a href="#">https://player.vimeo.com/video/947701005</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721228.html</a></td><td>56</td><td>3</td><td><a href="#">https://player.vimeo.com/video/951803969</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721301.html</a></td><td>57</td><td>1</td><td><a href="#">https://player.vimeo.com/video/975161457</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721301.html</a></td><td>57</td><td>2</td><td><a href="#">https://player.vimeo.com/video/982317683</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721301.html</a></td><td>57</td><td>3</td><td><a href="#">https://player.vimeo.com/video/986125089</a></td></tr>
+            
+                </tbody>
+            </table>
+        </div>
+
+        <div id="HIPHOP" class="category">
+            <h2>HIPHOP 课程</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>课程链接</th>
+                        <th>课程顺序</th>
+                        <th>课程集数</th>
+                        <th>视频链接</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/467623.html</a></td><td>1</td><td>1</td><td><a href="#">https://player.vimeo.com/video/470896593</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/467623.html</a></td><td>1</td><td>2</td><td><a href="#">https://player.vimeo.com/video/470896712</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473967.html</a></td><td>3</td><td>1</td><td><a href="#">https://player.vimeo.com/video/636168624</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473967.html</a></td><td>3</td><td>2</td><td><a href="#">https://player.vimeo.com/video/636776891</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/473967.html</a></td><td>3</td><td>3</td><td><a href="#">https://player.vimeo.com/video/636158804</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/480108.html</a></td><td>4</td><td>1</td><td><a href="#">https://player.vimeo.com/video/636984823</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/480108.html</a></td><td>4</td><td>2</td><td><a href="#">https://player.vimeo.com/video/636998789</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/480108.html</a></td><td>4</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637020082</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486281.html</a></td><td>5</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637298440</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486281.html</a></td><td>5</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637309660</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486281.html</a></td><td>5</td><td>3</td><td><a href="#">https://player.vimeo.com/video/510567208</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486281.html</a></td><td>5</td><td>4</td><td><a href="#">https://player.vimeo.com/video/637330640</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493004.html</a></td><td>6</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637336959</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493004.html</a></td><td>6</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637341610</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493004.html</a></td><td>6</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637383464</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493004.html</a></td><td>6</td><td>4</td><td><a href="#">https://player.vimeo.com/video/637378713</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/493004.html</a></td><td>6</td><td>5</td><td><a href="#">https://player.vimeo.com/video/637382143</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/503139.html</a></td><td>7</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637423692</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/503139.html</a></td><td>7</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637440908</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/509908.html</a></td><td>8</td><td>1</td><td><a href="#">https://player.vimeo.com/video/637744844</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/509908.html</a></td><td>8</td><td>2</td><td><a href="#">https://player.vimeo.com/video/637799265</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/509908.html</a></td><td>8</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637796014</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/521972.html</a></td><td>9</td><td>1</td><td><a href="#">https://player.vimeo.com/video/638134526</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523919.html</a></td><td>10</td><td>1</td><td><a href="#">https://player.vimeo.com/video/638508335</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523919.html</a></td><td>10</td><td>2</td><td><a href="#">https://player.vimeo.com/video/638630765</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523919.html</a></td><td>10</td><td>3</td><td><a href="#">https://player.vimeo.com/video/639000578</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/523919.html</a></td><td>10</td><td>4</td><td><a href="#">https://player.vimeo.com/video/639352571</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/533163.html</a></td><td>11</td><td>1</td><td><a href="#">https://player.vimeo.com/video/639442369</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/533163.html</a></td><td>11</td><td>2</td><td><a href="#">https://player.vimeo.com/video/639827599</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/533163.html</a></td><td>11</td><td>3</td><td><a href="#">https://player.vimeo.com/video/639851965</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/533163.html</a></td><td>11</td><td>4</td><td><a href="#">https://player.vimeo.com/video/639945411</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540518.html</a></td><td>12</td><td>1</td><td><a href="#">https://player.vimeo.com/video/622269474</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540518.html</a></td><td>12</td><td>2</td><td><a href="#">https://player.vimeo.com/video/622270589</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/540518.html</a></td><td>12</td><td>3</td><td><a href="#">https://player.vimeo.com/video/637404211</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/551604.html</a></td><td>13</td><td>1</td><td><a href="#">https://player.vimeo.com/video/630836935</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/555330.html</a></td><td>14</td><td>1</td><td><a href="#">https://player.vimeo.com/video/639891912</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/555330.html</a></td><td>14</td><td>2</td><td><a href="#">https://player.vimeo.com/video/644739610</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/565041.html</a></td><td>15</td><td>1</td><td><a href="#">https://player.vimeo.com/video/652714164</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/565041.html</a></td><td>15</td><td>2</td><td><a href="#">https://player.vimeo.com/video/655313727</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/565041.html</a></td><td>15</td><td>3</td><td><a href="#">https://player.vimeo.com/video/657672266</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/596858.html</a></td><td>16</td><td>1</td><td><a href="#">https://player.vimeo.com/video/678504690</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/596858.html</a></td><td>16</td><td>2</td><td><a href="#">https://player.vimeo.com/video/694355499</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590325.html</a></td><td>17</td><td>1</td><td><a href="#">https://player.vimeo.com/video/692916185</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590325.html</a></td><td>17</td><td>2</td><td><a href="#">https://player.vimeo.com/video/692920268</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/590325.html</a></td><td>17</td><td>3</td><td><a href="#">https://player.vimeo.com/video/692926541</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/600149.html</a></td><td>18</td><td>1</td><td><a href="#">https://player.vimeo.com/video/698206941</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/606131.html</a></td><td>19</td><td>1</td><td><a href="#">https://player.vimeo.com/video/712728034</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/606131.html</a></td><td>19</td><td>2</td><td><a href="#">https://player.vimeo.com/video/712733414</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/606131.html</a></td><td>19</td><td>3</td><td><a href="#">https://player.vimeo.com/video/712741601</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616021.html</a></td><td>20</td><td>1</td><td><a href="#">https://player.vimeo.com/video/716714946</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616021.html</a></td><td>20</td><td>2</td><td><a href="#">https://player.vimeo.com/video/722098229</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616021.html</a></td><td>20</td><td>3</td><td><a href="#">https://player.vimeo.com/video/722102763</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/616021.html</a></td><td>20</td><td>4</td><td><a href="#">https://player.vimeo.com/video/725560743</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/635424.html</a></td><td>21</td><td>1</td><td><a href="#">https://player.vimeo.com/video/747963438</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/635424.html</a></td><td>21</td><td>2</td><td><a href="#">https://player.vimeo.com/video/750215760</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/635424.html</a></td><td>21</td><td>3</td><td><a href="#">https://player.vimeo.com/video/755391679</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/646063.html</a></td><td>22</td><td>1</td><td><a href="#">https://player.vimeo.com/video/761327399</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/646063.html</a></td><td>22</td><td>2</td><td><a href="#">https://player.vimeo.com/video/762551663</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/646063.html</a></td><td>22</td><td>3</td><td><a href="#">https://player.vimeo.com/video/765619816</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652677.html</a></td><td>23</td><td>1</td><td><a href="#">https://player.vimeo.com/video/768473068</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652677.html</a></td><td>23</td><td>2</td><td><a href="#">https://player.vimeo.com/video/769798960</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/652677.html</a></td><td>23</td><td>3</td><td><a href="#">https://player.vimeo.com/video/778018741</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/661422.html</a></td><td>24</td><td>1</td><td><a href="#">https://player.vimeo.com/video/778061833</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/661422.html</a></td><td>24</td><td>2</td><td><a href="#">https://player.vimeo.com/video/780246056</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/672310.html</a></td><td>25</td><td>1</td><td><a href="#">https://player.vimeo.com/video/786800284</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/672310.html</a></td><td>25</td><td>2</td><td><a href="#">https://player.vimeo.com/video/789636859</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/672310.html</a></td><td>25</td><td>3</td><td><a href="#">https://player.vimeo.com/video/791783806</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/672310.html</a></td><td>25</td><td>4</td><td><a href="#">https://player.vimeo.com/video/784053940</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/683291.html</a></td><td>26</td><td>1</td><td><a href="#">https://player.vimeo.com/video/786865307</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/683291.html</a></td><td>26</td><td>2</td><td><a href="#">https://player.vimeo.com/video/786865426</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689899.html</a></td><td>27</td><td>1</td><td><a href="#">https://player.vimeo.com/video/802588472</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689899.html</a></td><td>27</td><td>2</td><td><a href="#">https://player.vimeo.com/video/803868253</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689899.html</a></td><td>27</td><td>3</td><td><a href="#">https://player.vimeo.com/video/807234259</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/689899.html</a></td><td>27</td><td>4</td><td><a href="#">https://player.vimeo.com/video/809293008</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/709770.html</a></td><td>28</td><td>1</td><td><a href="#">https://player.vimeo.com/video/824621800</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/709770.html</a></td><td>28</td><td>2</td><td><a href="#">https://player.vimeo.com/video/826149361</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/709770.html</a></td><td>28</td><td>3</td><td><a href="#">https://player.vimeo.com/video/828316498</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720798.html</a></td><td>29</td><td>1</td><td><a href="#">https://player.vimeo.com/video/831739430</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720798.html</a></td><td>29</td><td>2</td><td><a href="#">https://player.vimeo.com/video/831739607</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720798.html</a></td><td>29</td><td>3</td><td><a href="#">https://player.vimeo.com/video/831739758</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720798.html</a></td><td>29</td><td>4</td><td><a href="#">https://player.vimeo.com/video/831739872</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720845.html</a></td><td>30</td><td>1</td><td><a href="#">https://player.vimeo.com/video/843128812</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720845.html</a></td><td>30</td><td>2</td><td><a href="#">https://player.vimeo.com/video/845479555</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720907.html</a></td><td>31</td><td>1</td><td><a href="#">https://player.vimeo.com/video/861915057</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/720974.html</a></td><td>32</td><td>1</td><td><a href="#">https://player.vimeo.com/video/869524281</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721012.html</a></td><td>33</td><td>1</td><td><a href="#">https://player.vimeo.com/video/868192730</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721012.html</a></td><td>33</td><td>2</td><td><a href="#">https://player.vimeo.com/video/868192814</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721012.html</a></td><td>33</td><td>3</td><td><a href="#">https://player.vimeo.com/video/868192869</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721012.html</a></td><td>33</td><td>4</td><td><a href="#">https://player.vimeo.com/video/868192929</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721051.html</a></td><td>34</td><td>1</td><td><a href="#">https://player.vimeo.com/video/868183829</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721051.html</a></td><td>34</td><td>2</td><td><a href="#">https://player.vimeo.com/video/882732804</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721051.html</a></td><td>34</td><td>3</td><td><a href="#">https://player.vimeo.com/video/884799904</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721081.html</a></td><td>35</td><td>1</td><td><a href="#">https://player.vimeo.com/video/895208219</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721081.html</a></td><td>35</td><td>2</td><td><a href="#">https://player.vimeo.com/video/895227924</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721081.html</a></td><td>35</td><td>3</td><td><a href="#">https://player.vimeo.com/video/899779400</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721116.html</a></td><td>36</td><td>1</td><td><a href="#">https://player.vimeo.com/video/899764960</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721116.html</a></td><td>36</td><td>2</td><td><a href="#">https://player.vimeo.com/video/899770933</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721154.html</a></td><td>37</td><td>1</td><td><a href="#">https://player.vimeo.com/video/908198633</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721154.html</a></td><td>37</td><td>2</td><td><a href="#">https://player.vimeo.com/video/908198797</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721154.html</a></td><td>37</td><td>3</td><td><a href="#">https://player.vimeo.com/video/908198950</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721154.html</a></td><td>37</td><td>4</td><td><a href="#">https://player.vimeo.com/video/908199090</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721192.html</a></td><td>38</td><td>1</td><td><a href="#">https://player.vimeo.com/video/920046021</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721192.html</a></td><td>38</td><td>2</td><td><a href="#">https://player.vimeo.com/video/922928812</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721192.html</a></td><td>38</td><td>3</td><td><a href="#">https://player.vimeo.com/video/924467558</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721212.html</a></td><td>39</td><td>1</td><td><a href="#">https://player.vimeo.com/video/928710391</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721212.html</a></td><td>39</td><td>2</td><td><a href="#">https://player.vimeo.com/video/928710529</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721212.html</a></td><td>39</td><td>3</td><td><a href="#">https://player.vimeo.com/video/928710822</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721242.html</a></td><td>40</td><td>1</td><td><a href="#">https://player.vimeo.com/video/941782369</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721274.html</a></td><td>41</td><td>1</td><td><a href="#">https://player.vimeo.com/video/953478765</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721274.html</a></td><td>41</td><td>2</td><td><a href="#">https://player.vimeo.com/video/957107754</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721274.html</a></td><td>41</td><td>3</td><td><a href="#">https://player.vimeo.com/video/962231350</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721274.html</a></td><td>41</td><td>4</td><td><a href="#">https://player.vimeo.com/video/969369190</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721302.html</a></td><td>42</td><td>1</td><td><a href="#">https://player.vimeo.com/video/975161957</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721302.html</a></td><td>42</td><td>2</td><td><a href="#">https://player.vimeo.com/video/982318289</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/721302.html</a></td><td>42</td><td>3</td><td><a href="#">https://player.vimeo.com/video/986125829</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="SOUL" class="category">
+            <h2>SOUL 课程</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>课程链接</th>
+                        <th>课程顺序</th>
+                        <th>课程集数</th>
+                        <th>视频链接</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/450806.html</a></td><td>1</td><td>1</td><td><a href="#">https://player.vimeo.com/video/438766749</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/450806.html</a></td><td>1</td><td>2</td><td><a href="#">https://player.vimeo.com/video/439871412</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/450928.html</a></td><td>2</td><td>1</td><td><a href="#">https://player.vimeo.com/video/439678006</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/450928.html</a></td><td>2</td><td>2</td><td><a href="#">https://player.vimeo.com/video/446725384</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/450928.html</a></td><td>2</td><td>3</td><td><a href="#">https://player.vimeo.com/video/449233152</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452683.html</a></td><td>3</td><td>1</td><td><a href="#">https://player.vimeo.com/video/452114521</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452683.html</a></td><td>3</td><td>2</td><td><a href="#">https://player.vimeo.com/video/452114813</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452683.html</a></td><td>3</td><td>3</td><td><a href="#">https://player.vimeo.com/video/452114938</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452696.html</a></td><td>4</td><td>1</td><td><a href="#">https://player.vimeo.com/video/452433805</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452696.html</a></td><td>4</td><td>2</td><td><a href="#">https://player.vimeo.com/video/454983583</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452696.html</a></td><td>4</td><td>3</td><td><a href="#">https://player.vimeo.com/video/456485362</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452696.html</a></td><td>4</td><td>4</td><td><a href="#">https://player.vimeo.com/video/458936341</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/452696.html</a></td><td>4</td><td>5</td><td><a href="#">https://player.vimeo.com/video/460819051</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/460387.html</a></td><td>5</td><td>1</td><td><a href="#">https://player.vimeo.com/video/464923604</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/460387.html</a></td><td>5</td><td>2</td><td><a href="#">https://player.vimeo.com/video/465335717</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/460387.html</a></td><td>5</td><td>3</td><td><a href="#">https://player.vimeo.com/video/465639166</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/460387.html</a></td><td>5</td><td>4</td><td><a href="#">https://player.vimeo.com/video/465649766</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/466532.html</a></td><td>6</td><td>1</td><td><a href="#">https://player.vimeo.com/video/470146008</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/466532.html</a></td><td>6</td><td>2</td><td><a href="#">https://player.vimeo.com/video/475393768</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/466532.html</a></td><td>6</td><td>3</td><td><a href="#">https://player.vimeo.com/video/478315487</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/466532.html</a></td><td>6</td><td>4</td><td><a href="#">https://player.vimeo.com/video/480769805</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/474666.html</a></td><td>7</td><td>1</td><td><a href="#">https://player.vimeo.com/video/490585806</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/474666.html</a></td><td>7</td><td>2</td><td><a href="#">https://player.vimeo.com/video/494919798</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/474666.html</a></td><td>7</td><td>3</td><td><a href="#">https://player.vimeo.com/video/494922716</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/479900.html</a></td><td>8</td><td>1</td><td><a href="#">https://player.vimeo.com/video/495135881</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/479900.html</a></td><td>8</td><td>2</td><td><a href="#">https://player.vimeo.com/video/500837086</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/479900.html</a></td><td>8</td><td>3</td><td><a href="#">https://player.vimeo.com/video/502155137</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486074.html</a></td><td>9</td><td>1</td><td><a href="#">https://player.vimeo.com/video/506406399</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486074.html</a></td><td>9</td><td>2</td><td><a href="#">https://player.vimeo.com/video/522201980</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486074.html</a></td><td>9</td><td>3</td><td><a href="#">https://player.vimeo.com/video/510562862</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/486074.html</a></td><td>9</td><td>4</td><td><a href="#">https://player.vimeo.com/video/513266261</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/492798.html</a></td><td>10</td><td>1</td><td><a href="#">https://player.vimeo.com/video/518085090</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/492798.html</a></td><td>10</td><td>2</td><td><a href="#">https://player.vimeo.com/video/522162201</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/492798.html</a></td><td>10</td><td>3</td><td><a href="#">https://player.vimeo.com/video/522626091</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/492798.html</a></td><td>10</td><td>4</td><td><a href="#">https://player.vimeo.com/video/525362345</a></td></tr>
+                    <tr><td><a href="#">https://www.noaonline.jp/dance/video/492798.html</a></td><td>10</td><td>5</td><td><a href="#">https://player.vimeo.com/video/528757020</a></td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </nav>
-</div>
-</section>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const categories = document.querySelectorAll('.category');
 
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
 
-<section>
-  <!-- Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-    <!-- Component -->
-    <div class="grid grid-cols-1 items-center gap-8 sm:gap-20 lg:grid-cols-2">
-      <!-- Heading Div -->
-      <div class="max-w-[720px]">
-        <h1 class="mb-6 pb-4 text-4xl font-bold md:text-6xl">Fast,Reliable and Secure</h1>
-        <p class="mb-6 max-w-[528px] text-[#636262] md:mb-10 lg:mb-12">Say goodbye to payment headaches with SecurePay! Our easy-to-use payment platform makes it simple for businesses and individuals to send and receive payments</p>
-        <a href="#" class="mb-5 mr-5 inline-block rounded-full bg-[#c9fd02] px-6 py-4 text-center font-bold text-black transition hover:border-black hover:bg-white lg:mb-8 lg:mr-8">Open Account</a>
-        <div class="w-full max-w-xs">
-          <!-- Testimonial -->
-          <div class="mb-4 py-1.5 pl-4 [border-left:2px_solid_rgb(201,_253,_2)]">
-            <p class="text-sm text-[#636262]">A secure and convenient payment app that makes transactions a breeze, offering a seamless way to manage finances on the go.</p>
-          </div>
-          <!-- Author -->
-          <div class="flex items-center">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c349_Ellipse%2020%20(1).png" alt="" class="mr-2 inline-block h-7 w-7" />
-            <p class="text-sm font-bold">Jessica Smith</p>
-            <div class="mx-4 h-full py-3 [border-right-style:solid]"></div>
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <p class="text-sm text-[#636262]">5 stars</p>
-          </div>
-        </div>
-      </div>
-      <!-- Image Div -->
-      <div>
-        <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c34b_Rectangle%2094.svg" alt="" class="mx-auto inline-block h-full w-full max-w-[640px] rounded-2xl object-cover" />
-      </div>
-    </div>
-  </div>
-</section>
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
 
-
-<section class="bg-[#020d24] bg-cover bg-center text-white">
-  <!-- Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-    <!-- Heading -->
-    <div class="mx-auto flex max-w-3xl flex-col items-center text-center">
-      <h2 class="text-3xl font-bold md:text-5xl">Seamlessly Organize and <span class="text-[#2d6ae0]">Prioritize Tasks</span>
-      </h2>
-      <div class="mx-auto mb-8 mt-4 max-w-[528px] md:mb-12 lg:mb-16">
-        <p class="text-[#7c8aaa]">Lorem ipsum dolor sit amet consectetur adipiscing</p>
-      </div>
-    </div>
-    <!-- Main Content -->
-    <div class="grid grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 sm:justify-items-stretch">
-      <div class="rounded-xl bg-[#07132d] p-8 md:p-10">
-        <div class="flex flex-row items-center justify-between">
-          <p class="mr-4 rounded-md bg-[#0a1836] px-4 py-2 font-semibold uppercase">Strategy</p>
-          <div class="flex flex-col items-center justify-center text-[#2d6ae0]">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M34.2972 10.8739L20.4472 5.0869C20.1603 4.97103 19.8397 4.97103 19.5528 5.0869L5.70277 10.8739C5.4697 10.9755 5.276 11.1505 5.15104 11.3724C5.02607 11.5943 4.97665 11.8511 5.01027 12.1037L7.3186 29.4647C7.34387 29.6509 7.41342 29.8283 7.52139 29.9819C7.62935 30.1355 7.77257 30.2608 7.93897 30.3472L19.4806 36.1343C19.6432 36.2105 19.8205 36.25 20 36.25C20.1795 36.25 20.3568 36.2105 20.5194 36.1343L32.061 30.3472C32.2274 30.2608 32.3706 30.1355 32.4786 29.9819C32.5866 29.8283 32.6561 29.6509 32.6814 29.4647L34.9897 12.1037C35.0233 11.8511 34.9739 11.5943 34.849 11.3724C34.724 11.1505 34.5303 10.9755 34.2972 10.8739V10.8739ZM25.7131 25.7176C25.5493 25.7902 25.3728 25.8296 25.1937 25.8334C24.979 25.8332 24.7684 25.7737 24.5852 25.6614C24.4019 25.5491 24.2531 25.3884 24.155 25.1968L22.9431 22.7518H17.0569L15.845 25.1968C15.7073 25.4731 15.4657 25.6831 15.1735 25.7808C14.8813 25.8785 14.5624 25.8558 14.2869 25.7176C14.0114 25.5795 13.8019 25.3373 13.7045 25.0442C13.6071 24.7512 13.6298 24.4314 13.7675 24.1551L18.9613 13.7385C19.0596 13.5472 19.2085 13.3868 19.3917 13.2748C19.575 13.1627 19.7854 13.1035 20 13.1035C20.2146 13.1035 20.425 13.1627 20.6083 13.2748C20.7915 13.3868 20.9404 13.5472 21.0387 13.7385L26.2325 24.1551C26.3645 24.4323 26.3841 24.7501 26.2873 25.0415C26.1904 25.3329 25.9846 25.5753 25.7131 25.7176V25.7176ZM20 16.849L21.789 20.437H18.211L20 16.849Z" fill="currentColor"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="mb-20 mt-4 h-0.5 w-full bg-[#1b2e56]"></div>
-        <div class="flex max-w-lg flex-col items-start gap-3">
-          <p class="text-xl font-semibold">Intuitive Calendar Interface</p>
-          <p class="text-[#7c8aaa]">The XYZ Payment App is a user-friendly mobile application that revolutionizes the way you handle your payments and transactions. With its intuitive interface and robust functionality.</p>
-        </div>
-      </div>
-      <div class="rounded-xl bg-[#07132d] p-8 md:p-10">
-        <div class="flex flex-row items-center justify-between">
-          <p class="mr-4 rounded-md bg-[#0a1836] px-4 py-2 font-semibold uppercase">Strategy</p>
-          <div class="flex flex-col items-center justify-center text-[#2d6ae0]">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M34.2972 10.8739L20.4472 5.0869C20.1603 4.97103 19.8397 4.97103 19.5528 5.0869L5.70277 10.8739C5.4697 10.9755 5.276 11.1505 5.15104 11.3724C5.02607 11.5943 4.97665 11.8511 5.01027 12.1037L7.3186 29.4647C7.34387 29.6509 7.41342 29.8283 7.52139 29.9819C7.62935 30.1355 7.77257 30.2608 7.93897 30.3472L19.4806 36.1343C19.6432 36.2105 19.8205 36.25 20 36.25C20.1795 36.25 20.3568 36.2105 20.5194 36.1343L32.061 30.3472C32.2274 30.2608 32.3706 30.1355 32.4786 29.9819C32.5866 29.8283 32.6561 29.6509 32.6814 29.4647L34.9897 12.1037C35.0233 11.8511 34.9739 11.5943 34.849 11.3724C34.724 11.1505 34.5303 10.9755 34.2972 10.8739V10.8739ZM25.7131 25.7176C25.5493 25.7902 25.3728 25.8296 25.1937 25.8334C24.979 25.8332 24.7684 25.7737 24.5852 25.6614C24.4019 25.5491 24.2531 25.3884 24.155 25.1968L22.9431 22.7518H17.0569L15.845 25.1968C15.7073 25.4731 15.4657 25.6831 15.1735 25.7808C14.8813 25.8785 14.5624 25.8558 14.2869 25.7176C14.0114 25.5795 13.8019 25.3373 13.7045 25.0442C13.6071 24.7512 13.6298 24.4314 13.7675 24.1551L18.9613 13.7385C19.0596 13.5472 19.2085 13.3868 19.3917 13.2748C19.575 13.1627 19.7854 13.1035 20 13.1035C20.2146 13.1035 20.425 13.1627 20.6083 13.2748C20.7915 13.3868 20.9404 13.5472 21.0387 13.7385L26.2325 24.1551C26.3645 24.4323 26.3841 24.7501 26.2873 25.0415C26.1904 25.3329 25.9846 25.5753 25.7131 25.7176V25.7176ZM20 16.849L21.789 20.437H18.211L20 16.849Z" fill="currentColor"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="mb-20 mt-4 h-0.5 w-full bg-[#1b2e56]"></div>
-        <div class="flex max-w-lg flex-col items-start gap-3">
-          <p class="text-xl font-semibold">Intuitive Calendar Interface</p>
-          <p class="text-[#7c8aaa]">The XYZ Payment App is a user-friendly mobile application that revolutionizes the way you handle your payments and transactions. With its intuitive interface and robust functionality.</p>
-        </div>
-      </div>
-      <div class="rounded-xl bg-[#07132d] p-8 md:p-10">
-        <div class="flex flex-row items-center justify-between">
-          <p class="mr-4 rounded-md bg-[#0a1836] px-4 py-2 font-semibold uppercase">Strategy</p>
-          <div class="flex flex-col items-center justify-center text-[#2d6ae0]">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M34.2972 10.8739L20.4472 5.0869C20.1603 4.97103 19.8397 4.97103 19.5528 5.0869L5.70277 10.8739C5.4697 10.9755 5.276 11.1505 5.15104 11.3724C5.02607 11.5943 4.97665 11.8511 5.01027 12.1037L7.3186 29.4647C7.34387 29.6509 7.41342 29.8283 7.52139 29.9819C7.62935 30.1355 7.77257 30.2608 7.93897 30.3472L19.4806 36.1343C19.6432 36.2105 19.8205 36.25 20 36.25C20.1795 36.25 20.3568 36.2105 20.5194 36.1343L32.061 30.3472C32.2274 30.2608 32.3706 30.1355 32.4786 29.9819C32.5866 29.8283 32.6561 29.6509 32.6814 29.4647L34.9897 12.1037C35.0233 11.8511 34.9739 11.5943 34.849 11.3724C34.724 11.1505 34.5303 10.9755 34.2972 10.8739V10.8739ZM25.7131 25.7176C25.5493 25.7902 25.3728 25.8296 25.1937 25.8334C24.979 25.8332 24.7684 25.7737 24.5852 25.6614C24.4019 25.5491 24.2531 25.3884 24.155 25.1968L22.9431 22.7518H17.0569L15.845 25.1968C15.7073 25.4731 15.4657 25.6831 15.1735 25.7808C14.8813 25.8785 14.5624 25.8558 14.2869 25.7176C14.0114 25.5795 13.8019 25.3373 13.7045 25.0442C13.6071 24.7512 13.6298 24.4314 13.7675 24.1551L18.9613 13.7385C19.0596 13.5472 19.2085 13.3868 19.3917 13.2748C19.575 13.1627 19.7854 13.1035 20 13.1035C20.2146 13.1035 20.425 13.1627 20.6083 13.2748C20.7915 13.3868 20.9404 13.5472 21.0387 13.7385L26.2325 24.1551C26.3645 24.4323 26.3841 24.7501 26.2873 25.0415C26.1904 25.3329 25.9846 25.5753 25.7131 25.7176V25.7176ZM20 16.849L21.789 20.437H18.211L20 16.849Z" fill="currentColor"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="mb-20 mt-4 h-0.5 w-full bg-[#1b2e56]"></div>
-        <div class="flex max-w-lg flex-col items-start gap-3">
-          <p class="text-xl font-semibold">Intuitive Calendar Interface</p>
-          <p class="text-[#7c8aaa]">The XYZ Payment App is a user-friendly mobile application that revolutionizes the way you handle your payments and transactions. With its intuitive interface and robust functionality.</p>
-        </div>
-      </div>
-      <div class="rounded-xl bg-[#07132d] p-8 md:p-10">
-        <div class="flex flex-row items-center justify-between">
-          <p class="mr-4 rounded-md bg-[#0a1836] px-4 py-2 font-semibold uppercase">Strategy</p>
-          <div class="flex flex-col items-center justify-center text-[#2d6ae0]">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M34.2972 10.8739L20.4472 5.0869C20.1603 4.97103 19.8397 4.97103 19.5528 5.0869L5.70277 10.8739C5.4697 10.9755 5.276 11.1505 5.15104 11.3724C5.02607 11.5943 4.97665 11.8511 5.01027 12.1037L7.3186 29.4647C7.34387 29.6509 7.41342 29.8283 7.52139 29.9819C7.62935 30.1355 7.77257 30.2608 7.93897 30.3472L19.4806 36.1343C19.6432 36.2105 19.8205 36.25 20 36.25C20.1795 36.25 20.3568 36.2105 20.5194 36.1343L32.061 30.3472C32.2274 30.2608 32.3706 30.1355 32.4786 29.9819C32.5866 29.8283 32.6561 29.6509 32.6814 29.4647L34.9897 12.1037C35.0233 11.8511 34.9739 11.5943 34.849 11.3724C34.724 11.1505 34.5303 10.9755 34.2972 10.8739V10.8739ZM25.7131 25.7176C25.5493 25.7902 25.3728 25.8296 25.1937 25.8334C24.979 25.8332 24.7684 25.7737 24.5852 25.6614C24.4019 25.5491 24.2531 25.3884 24.155 25.1968L22.9431 22.7518H17.0569L15.845 25.1968C15.7073 25.4731 15.4657 25.6831 15.1735 25.7808C14.8813 25.8785 14.5624 25.8558 14.2869 25.7176C14.0114 25.5795 13.8019 25.3373 13.7045 25.0442C13.6071 24.7512 13.6298 24.4314 13.7675 24.1551L18.9613 13.7385C19.0596 13.5472 19.2085 13.3868 19.3917 13.2748C19.575 13.1627 19.7854 13.1035 20 13.1035C20.2146 13.1035 20.425 13.1627 20.6083 13.2748C20.7915 13.3868 20.9404 13.5472 21.0387 13.7385L26.2325 24.1551C26.3645 24.4323 26.3841 24.7501 26.2873 25.0415C26.1904 25.3329 25.9846 25.5753 25.7131 25.7176V25.7176ZM20 16.849L21.789 20.437H18.211L20 16.849Z" fill="currentColor"></path>
-            </svg>
-          </div>
-        </div>
-        <div class="mb-20 mt-4 h-0.5 w-full bg-[#1b2e56]"></div>
-        <div class="flex max-w-lg flex-col items-start gap-3">
-          <p class="text-xl font-semibold">Intuitive Calendar Interface</p>
-          <p class="text-[#7c8aaa]">The XYZ Payment App is a user-friendly mobile application that revolutionizes the way you handle your payments and transactions. With its intuitive interface and robust functionality.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section>
-  <!-- Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
-    <!-- Header -->
-    <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center text-center md:mb-12 lg:mb-16">
-      <p class="text-sm font-semibold uppercase text-[#2d6ae0]">3 easy steps</p>
-      <h2 class="text-3xl font-bold md:text-5xl">How it works</h2>
-      <div class="mx-auto my-4 max-w-[528px] md:mb-6 lg:mb-8">
-        <p class="text-[#636262]">Lorem ipsum dolor sit amet consectetur adipiscing</p>
-      </div>
-    </div>
-    <!-- Content -->
-    <div class="flex flex-col items-start gap-8 md:flex-row-reverse lg:gap-12">
-      <!-- Steps -->
-      <div class="flex max-w-[496px] flex-1 flex-col items-start">
-        <a class="relative mb-8 flex gap-4 p-6">
-          <div class="flex h-10 w-10 flex-none flex-col items-center justify-center rounded-full bg-[#dae2f3]">
-            <p class="font-bold text-[#7c8aaa]">1</p>
-          </div>
-          <div class="ml-4 flex flex-col gap-2">
-            <h5 class="font-bold md:text-xl">Setup your Link</h5>
-            <p class="text-[#636262]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit.</p>
-          </div>
-        </a>
-        <a class="relative mb-8 flex gap-4 p-6">
-          <div class="flex h-10 w-10 flex-none flex-col items-center justify-center rounded-full bg-[#dae2f3]">
-            <p class="font-bold text-[#7c8aaa]">2</p>
-          </div>
-          <div class="ml-4 flex flex-col gap-2">
-            <h5 class="font-bold md:text-xl">Send Invites</h5>
-            <p class="text-[#636262]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit.</p>
-          </div>
-        </a>
-        <a class="relative mb-8 flex flex-row gap-4 p-6">
-          <div class="flex h-10 w-10 flex-none flex-col items-center justify-center rounded-full bg-[#dae2f3]">
-            <p class="font-bold text-[#7c8aaa]">3</p>
-          </div>
-          <div class="ml-4 flex flex-col gap-2">
-            <h5 class="font-bold md:text-xl">Get More Sales!</h5>
-            <p class="text-[#636262]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit.</p>
-          </div>
-        </a>
-      </div>
-      <!-- Image -->
-      <div class="flex-1">
-        <img src="https://assets.website-files.com/647e296b89c00bcfafccf696/647f0b14162c5306c7cfdcc9_Rectangle%20106.jpg" alt="Image showing dashboard of the app" class="inline-block h-full w-full" />
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="bg-[#eef0f4]">
-  <!-- Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-    <!-- Header -->
-    <div class="mx-auto mb-8 flex max-w-3xl flex-col items-center text-center md:mb-12 lg:mb-16">
-      <h2 class="text-3xl font-bold md:text-5xl">Frequently Asked</h2>
-      <p class="mx-auto mt-4 max-w-[528px] tracking-[0.2px] text-[#636262]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam,purus sit amet luctus magna fringilla urna</p>
-    </div>
-    <!-- FAQ Items -->
-    <div class="mb-8 grid grid-cols-1 justify-center gap-4 md:mb-12 lg:mb-16 lg:grid-cols-2">
-      <!-- FAQ Left Col -->
-      <div class="w-full">
-        <div class="mb-6 w-full rounded-xl bg-white p-8">
-          <div class="flex cursor-pointer items-start justify-between">
-            <div class="text-xl font-bold">How this theme is different from others in market?</div>
-            <div class="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
-              <div class="absolute h-5 w-0.5 bg-[#0b0b1f]"></div>
-              <div class="h-0.5 w-5 bg-[#0b0b1f]"></div>
-            </div>
-          </div>
-          <div class="w-full max-w-[640px] pt-4 lg:max-w-[960px]">
-            <p class="tracking-[0.2px]">Pellentesque in nisi aliquet, pellentesque purus eget, imperdiet turpis. Fusce at enim quis neque viverra convallis. Vivamus ut elementum leo, eget tempus nisl. Sed viverra enim ac turpis posuere consectetur. Sed enim nibh, consequat vitae lacus eu, ullamcorper ullamcorper massa. Pellentesque purus eget, imperdiet turpis.</p>
-          </div>
-        </div>
-        <div class="mb-6 w-full rounded-xl bg-white p-8">
-          <div class="flex cursor-pointer items-start justify-between">
-            <div class="text-xl font-bold">What is your policy on distributon</div>
-            <div class="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
-              <div class="absolute h-5 w-0.5 bg-[#0b0b1f]"></div>
-              <div class="h-0.5 w-5 bg-[#0b0b1f]"></div>
-            </div>
-          </div>
-          <div class="w-full max-w-[640px] pt-4 lg:max-w-[960px]">
-            <p class="tracking-[0.2px]">Pellentesque in nisi aliquet, pellentesque purus eget, imperdiet turpis. Fusce at enim quis neque viverra convallis. Vivamus ut elementum leo, eget tempus nisl. Sed viverra enim ac turpis posuere consectetur. Sed enim nibh, consequat vitae lacus eu, ullamcorper ullamcorper massa. Pellentesque purus eget, imperdiet turpis.</p>
-          </div>
-        </div>
-        <div class="mb-6 w-full rounded-xl bg-white p-8">
-          <div class="flex cursor-pointer items-start justify-between">
-            <div class="text-xl font-bold">How can I contribute to Flowspark?</div>
-            <div class="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
-              <div class="absolute h-5 w-0.5 bg-[#0b0b1f]"></div>
-              <div class="h-0.5 w-5 bg-[#0b0b1f]"></div>
-            </div>
-          </div>
-          <div class="w-full max-w-[640px] pt-4 lg:max-w-[960px]">
-            <p class="tracking-[0.2px]">Pellentesque in nisi aliquet, pellentesque purus eget, imperdiet turpis. Fusce at enim quis neque viverra convallis. Vivamus ut elementum leo, eget tempus nisl. Sed viverra enim ac turpis posuere consectetur. Sed enim nibh, consequat vitae lacus eu, ullamcorper ullamcorper massa. Pellentesque purus eget, imperdiet turpis.</p>
-          </div>
-        </div>
-      </div>
-      <!-- FAQ Right Col -->
-      <div class="w-full">
-        <div class="mb-6 w-full rounded-xl bg-white p-8">
-          <div class="flex cursor-pointer items-start justify-between">
-            <div class="text-xl font-bold">How can I contribute to Flowspark?</div>
-            <div class="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
-              <div class="absolute h-5 w-0.5 bg-[#0b0b1f]"></div>
-              <div class="h-0.5 w-5 bg-[#0b0b1f]"></div>
-            </div>
-          </div>
-          <div class="w-full max-w-[640px] pt-4 lg:max-w-[960px]">
-            <p class="tracking-[0.2px]">Pellentesque in nisi aliquet, pellentesque purus eget, imperdiet turpis. Fusce at enim quis neque viverra convallis. Vivamus ut elementum leo, eget tempus nisl. Sed viverra enim ac turpis posuere consectetur. Sed enim nibh, consequat vitae lacus eu, ullamcorper ullamcorper massa. Pellentesque purus eget, imperdiet turpis.</p>
-          </div>
-        </div>
-        <div class="mb-6 w-full rounded-xl bg-white p-8">
-          <div class="flex cursor-pointer items-start justify-between">
-            <div class="text-xl font-bold">How can I contribute to Flowspark?</div>
-            <div class="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
-              <div class="absolute h-5 w-0.5 bg-[#0b0b1f]"></div>
-              <div class="h-0.5 w-5 bg-[#0b0b1f]"></div>
-            </div>
-          </div>
-          <div class="w-full max-w-[640px] pt-4 lg:max-w-[960px]">
-            <p class="tracking-[0.2px]">Pellentesque in nisi aliquet, pellentesque purus eget, imperdiet turpis. Fusce at enim quis neque viverra convallis. Vivamus ut elementum leo, eget tempus nisl. Sed viverra enim ac turpis posuere consectetur. Sed enim nibh, consequat vitae lacus eu, ullamcorper ullamcorper massa. Pellentesque purus eget, imperdiet turpis.</p>
-          </div>
-        </div>
-        <div class="mb-6 w-full rounded-xl bg-white p-8">
-          <div class="flex cursor-pointer items-start justify-between">
-            <div class="text-xl font-bold">How can I contribute to Flowspark?</div>
-            <div class="relative ml-10 mt-1 flex h-5 w-5 items-center justify-center">
-              <div class="absolute h-5 w-0.5 bg-[#0b0b1f]"></div>
-              <div class="h-0.5 w-5 bg-[#0b0b1f]"></div>
-            </div>
-          </div>
-          <div class="w-full max-w-[640px] pt-4 lg:max-w-[960px]">
-            <p class="tracking-[0.2px]">Pellentesque in nisi aliquet, pellentesque purus eget, imperdiet turpis. Fusce at enim quis neque viverra convallis. Vivamus ut elementum leo, eget tempus nisl. Sed viverra enim ac turpis posuere consectetur. Sed enim nibh, consequat vitae lacus eu, ullamcorper ullamcorper massa. Pellentesque purus eget, imperdiet turpis.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="text-center tracking-[0.2px]">Can’t find the answer you’re looking for? Reach out to our <a href="#" class="font-bold">customer support team</a>.</p>
-  </div>
-</section>
-
-
-
-<section class="bg-[#f7f6f2]">
-  <!-- Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-    <h2 class="mx-auto mb-8 mt-6 max-w-3xl text-center text-3xl font-extrabold md:mb-16 md:text-5xl">What our clients are saying</h2>
-    <!-- Testimonails -->
-    <div class="mb-5 grid grid-cols-1 gap-5 md:grid-cols-2 lg:mb-8">
-      <!-- Item -->
-      <div class="grid min-h-[280px] grid-cols-[1fr_1.75fr] gap-6 rounded-2xl bg-white p-8 md:p-10">
-        <!-- Author -->
-        <div class="flex flex-col justify-between">
-          <div class="flex flex-col items-start gap-4">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c34e_Image%20%26%20Quotation.svg" alt="" class="inline-block h-16" />
-            <div class="flex flex-col">
-              <h6 class="text-sm font-bold md:text-base">Jonathan Smith</h6>
-              <p class="text-sm text-[#636262]">Small Business Owner</p>
-            </div>
-          </div>
-          <div class="flex">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-          </div>
-        </div>
-        <p class="text-[#636262]">“Lorem ipsum dolor sit amet, &nbsp;elit ut aliquam, purus sit amet luctus venenatis elit ut aliquam, purus sit amet luctus venenatis"</p>
-      </div>
-      <!-- Item -->
-      <div class="grid min-h-[280px] grid-cols-[1fr_1.75fr] gap-6 rounded-2xl bg-white p-8 md:p-10">
-        <!-- Author -->
-        <div class="flex flex-col justify-between">
-          <div class="flex flex-col items-start gap-4">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c350_Image%20%26%20Quotation-1.svg" alt="" class="inline-block h-16" />
-            <div class="flex flex-col">
-              <h6 class="text-sm font-bold md:text-base">Jonathan Smith</h6>
-              <p class="text-sm text-[#636262]">Small Business Owner</p>
-            </div>
-          </div>
-          <div class="flex">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-          </div>
-        </div>
-        <p class="text-[#636262]">“Lorem ipsum dolor sit amet, &nbsp;elit ut aliquam, purus sit amet luctus venenatis elit ut aliquam, purus sit amet luctus venenatis"</p>
-      </div>
-      <!-- Item -->
-      <div class="grid min-h-[280px] grid-cols-[1fr_1.75fr] gap-6 rounded-2xl bg-white p-8 md:p-10">
-        <!-- Author -->
-        <div class="flex flex-col justify-between">
-          <div class="flex flex-col items-start gap-4">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c34d_Image%20%26%20Quotation-2.svg" width="90" alt="" class="inline-block h-16" />
-            <div class="flex flex-col">
-              <h6 class="text-sm font-bold md:text-base">Jonathan Smith</h6>
-              <p class="text-sm text-[#636262]">Small Business Owner</p>
-            </div>
-          </div>
-          <div class="flex">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-          </div>
-        </div>
-        <p class="text-[#636262]">“Lorem ipsum dolor sit amet, &nbsp;elit ut aliquam, purus sit amet luctus venenatis elit ut aliquam, purus sit amet luctus venenatis"</p>
-      </div>
-      <!-- Item -->
-      <div class="grid min-h-[280px] grid-cols-[1fr_1.75fr] gap-6 rounded-2xl bg-white p-8 md:p-10">
-        <!-- Author -->
-        <div class="flex flex-col justify-between">
-          <div class="flex flex-col items-start gap-4">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c34f_Image%20%26%20Quotation-3.svg" alt="" class="inline-block h-16" />
-            <div class="flex flex-col">
-              <h6 class="text-sm font-bold md:text-base">Jonathan Smith</h6>
-              <p class="text-sm text-[#636262]">Small Business Owner</p>
-            </div>
-          </div>
-          <div class="flex">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f683b1e3793b739a1c347_Vector.svg" alt="" class="mr-1 inline-block w-3.5 flex-none" />
-          </div>
-        </div>
-        <p class="text-[#636262]">“Lorem ipsum dolor sit amet, &nbsp;elit ut aliquam, purus sit amet luctus venenatis elit ut aliquam, purus sit amet luctus venenatis"</p>
-      </div>
-    </div>
-    <div class="flex flex-col items-center">
-      <a href="#" class="mx-auto font-bold text-black">Check all reviews</a>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="relative">
-  <!-- BG Image -->
-  <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fa_Get%20Started%20BG.svg" alt="" class="absolute -z-[1] h-full w-full object-cover" />
-  <!-- Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-    <!-- Component -->
-    <div class="flex flex-col items-center">
-      <!-- Heading Content -->
-      <div class="mb-8 max-w-3xl text-center md:mb-12 lg:mb-16">
-        <h2 class="mb-4 mt-6 text-3xl font-extrabold text-white md:text-5xl">Simple &amp; Affordable Pricing</h2>
-        <div class="mx-auto mt-4 max-w-[528px]">
-          <p class="text-[#636262]">Simple &amp; fixed pricing. 30 days money-back guarantee</p>
-        </div>
-      </div>
-      <!-- Pricing Cards -->
-      <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-3 md:gap-4">
-        <!-- Pricing Card -->
-        <div class="mx-auto flex w-full max-w-[416px] flex-col items-start rounded-md bg-[#131313] p-8 text-white">
-          <div class="mb-4 rounded-lg bg-[#cf8f1329] px-5 py-2 text-[#cf8f13]">
-            <p class="font-bold">Basic</p>
-          </div>
-          <p class="mb-6 font-light text-[#636262] md:mb-10 lg:mb-12">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit</p>
-          <h2 class="my-6 pb-8 text-3xl font-extrabold md:text-5xl">$99<span class="text-sm font-light text-[#636262]">/year</span>
-          </h2>
-          <a href="#" class="mb-5 inline-block w-full rounded-lg bg-neutral-900 px-6 py-4 text-center font-bold text-[#636262] transition hover:border-black hover:bg-[#c9fd02] hover:text-black lg:mb-8">Get started</a>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Premium Designs</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Exclusive Freebies</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Monthly Free Exclusive</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Customer Support</p>
-          </div>
-        </div>
-        <!-- Pricing Card -->
-        <div class="mx-auto flex w-full max-w-[416px] flex-col items-start rounded-md bg-[#131313] p-8 text-white">
-          <div class="mb-4 rounded-lg bg-[#0caeb929] px-5 py-2 text-[#0caeb9]">
-            <p class="font-bold">Growth</p>
-          </div>
-          <p class="mb-6 font-light text-[#636262] md:mb-10 lg:mb-12">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit</p>
-          <h2 class="my-6 pb-8 text-3xl font-extrabold md:text-5xl">$149<span class="text-sm font-light text-[#636262]">/year</span>
-          </h2>
-          <a href="#" class="mb-5 inline-block w-full rounded-lg bg-[#c9fd02] px-6 py-4 text-center font-bold text-black transition hover:border-black hover:bg-neutral-900 hover:text-[#636262] md:mb-6 lg:mb-8">Get started</a>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Premium Designs</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Exclusive Freebies</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Monthly Free Exclusive</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Customer Support</p>
-          </div>
-        </div>
-        <!-- Pricing Card -->
-        <div class="mx-auto flex w-full max-w-[416px] flex-col items-start rounded-md bg-[#131313] p-8 text-white">
-          <div class="mb-4 rounded-lg bg-[#c013cf29] px-5 py-2 text-[#c013cf]">
-            <p class="font-bold">Premium</p>
-          </div>
-          <p class="mb-6 font-light text-[#636262] md:mb-10 lg:mb-12">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit</p>
-          <h2 class="my-6 pb-8 text-3xl font-extrabold md:text-5xl">$249<span class="text-sm font-light text-[#636262]">/year</span>
-          </h2>
-          <a href="#" class="mb-5 inline-block w-full rounded-lg bg-neutral-900 px-6 py-4 text-center font-bold text-[#636262] transition hover:border-black hover:bg-[#c9fd02] hover:text-black lg:mb-8">Get started</a>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Premium Designs</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Exclusive Freebies</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Monthly Free Exclusive</p>
-          </div>
-          <div class="mt-2 flex flex-row">
-            <img src="https://uploads-ssl.webflow.com/646f65e37fe0275cfb808405/646f68133fc5cb4e29ed28fb_akar-icons_circle-check-fill.svg" alt="" class="mr-2 inline-block w-5" />
-            <p>Customer Support</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Section Contact -->
-<section>
-  <!-- Contact Container -->
-  <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-    <!-- Contact Component -->
-    <div class="">
-      <!-- Contact Title -->
-      <div class="mx-auto max-w-3xl text-center">
-        <h2 class="text-3xl font-bold md:text-5xl">Contact Sales</h2>
-        <p class="mx-auto mb-12 mt-4 max-w-xl text-[#647084]">Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam,purus sit amet luctus magna fringilla urna</p>
-      </div>
-      <!-- Contact Form -->
-      <form class="mb-4 text-left sm:px-4 md:px-20" name="wf-form-name" method="get">
-        <div class="mb-4 grid grid-cols-2 gap-6">
-          <div>
-            <label for="name-2" class="mb-1 font-medium">First Name</label>
-            <input type="text" class="h-9 w-full bg-[#f2f2f7] px-3 py-6 text-sm text-[#333333]" placeholder="" required="" />
-          </div>
-          <div>
-            <label for="name-3" class="mb-1 font-medium">Last Name</label>
-            <input type="text" class="h-9 w-full bg-[#f2f2f7] px-3 py-6 text-sm text-[#333333]" placeholder="" required="" />
-          </div>
-        </div>
-        <div class="mb-4">
-          <label for="field" class="mb-1 font-medium">Company Website</label>
-          <input type="text" class="h-9 w-full bg-[#f2f2f7] px-3 py-6 text-sm text-[#333333]" placeholder="" required="" />
-        </div>
-        <div class="mb-4">
-          <label for="field" class="mb-1 font-medium">Email</label>
-          <input type="text" class="h-9 w-full bg-[#f2f2f7] px-3 py-6 text-sm text-[#333333]" placeholder="" required="" />
-        </div>
-        <div class="mb-8">
-          <label for="field" class="mb-1 font-medium">Message</label>
-          <textarea placeholder="" class="h-auto min-h-[186px] w-full overflow-auto bg-[#f2f2f7] px-3 py-2 text-sm text-[#333333]"> </textarea>
-        </div>
-        <label class="mb-1 flex pb-4 font-medium">
-          <input type="checkbox" name="checkbox-3" />
-          <span class="ml-4 inline-block cursor-pointer text-sm" for="checkbox-3">I agree with the <a href="#" class="font-bold text-[#0b0b1f]">Terms &amp; Conditions</a>
-          </span>
-        </label>
-        <a href="#" class="mr-5 flex w-full items-center justify-center bg-[#276ef1] px-8 py-4 font-semibold text-white transition [box-shadow:rgb(171,_196,245)-8px_8px] hover:[box-shadow:rgb(171,_196,_245)_0px_0px] md:mr-6 lg:mr-8">
-          <p class="mr-6 font-bold">Let's Talk</p>
-          <svg fill="currentColor" viewBox="0 0 20 21" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-none">
-            <title>Arrow Right</title>
-            <polygon points="16.172 9 10.101 2.929 11.515 1.515 20 10 19.293 10.707 11.515 18.485 10.101 17.071 16.172 11 0 11 0 9"></polygon>
-          </svg>
-        </a>
-      </form>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- Footer Standard Email V2 -->
-<section class="bg-black text-white">
-  <div class="flex w-screen flex-col px-6 py-20 lg:px-10 xl:px-24">
-    <!-- TOP CONTAINER -->
-    <div class="flex flex-col lg:flex-row lg:justify-between">
-      <!-- LEFT DIV -->
-      <div class="flex flex-col lg:mr-20">
-        <!-- LOGO -->
-        <a href="#" class="mb-12 inline-block max-w-full font-bold text-[#1353fe]">
-          <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/6399728d302d2471f18b229f_Group%2047874%20(2).svg" alt="" class="inline-block max-h-10" />
-        </a>
-        <p class="font-inter my-4 max-w-[350px] text-base font-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut al</p>
-        <!-- NEWSLETTER & EMAIL -->
-        <div class="flex flex-col">
-          <form action="" class="mb-10 mt-5 max-w-[421px]">
-            <div class="relative">
-              <label for="email" class="font-inter font-medium">SUBSCRIBE TO NEWSLETTER</label>
-              <input type="email" class="font-inter relative mt-4 w-full rounded-md border border-black bg-[#232323] px-6 py-4 text-base" placeholder="Enter your email" name="email" />
-              <button type="submit" class="absolute right-[15px] top-[55px]">
-                <img src="https://assets.website-files.com/63904f663019b0d8edf8d57c/639974a7f44de6baa9a134aa_PaperPlaneTilt%20(1).svg" alt="" class="inline-block" />
-              </button>
-            </div>
-          </form>
-          <div>
-            <h3 for="email" class="font-inter mb-4 mt-8 font-medium">EMAIL US</h3>
-            <p class="font-inter text-base">support@flowspark.co</p>
-          </div>
-        </div>
-      </div>
-      <!-- RIGHT DIV -->
-      <div class="mt-7 max-w-[700px] grow lg:flex lg:flex-row">
-        <!-- FOOTER LINKS -->
-        <div class="flex grow flex-row flex-wrap lg:flex-nowrap lg:items-start">
-          <!-- LINK BLOCK -->
-          <div class="my-5 mr-8 flex max-w-[500px] grow basis-[100px] flex-col space-y-5 lg:my-0">
-            <h2 class="font-inter font-medium">SOLUTION</h2>
-            <a href="" class="font-inter font-light text-gray-500">Marketing</a>
-            <a href="" class="font-inter font-light text-gray-500">Analytics</a>
-            <a href="" class="font-inter font-light text-gray-500">Commerce</a>
-            <a href="" class="font-inter font-light text-gray-500">Insights</a>
-          </div>
-          <!-- LINK BLOCK -->
-          <div class="my-5 mr-8 flex max-w-[500px] grow basis-[100px] flex-col space-y-5 lg:my-0">
-            <h2 class="font-inter font-medium">SUPPORT</h2>
-            <a href="" class="font-inter font-light text-gray-500">Pricing</a>
-            <a href="" class="font-inter font-light text-gray-500">Documentation</a>
-            <a href="" class="font-inter font-light text-gray-500">Guides</a>
-            <a href="" class="font-inter font-light text-gray-500">API Status</a>
-          </div>
-          <!-- LINK BLOCK -->
-          <div class="my-5 mr-8 flex max-w-[500px] grow basis-[100px] flex-col space-y-5 lg:my-0 lg:mr-0">
-            <h2 class="font-inter font-medium">COMPANY</h2>
-            <a href="" class="font-inter font-light text-gray-500">About</a>
-            <a href="" class="font-inter font-light text-gray-500">Blog</a>
-            <a href="" class="font-inter font-light text-gray-500">Jobs</a>
-            <a href="" class="font-inter font-light text-gray-500">Press</a>
-            <a href="" class="font-inter font-light text-gray-500">Partners</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- BOTTOM CONTAINER -->
-    <div class="mt-20 lg:flex lg:flex-row-reverse lg:justify-between">
-      <!-- SOCIAL MEDIA ICONS -->
-      <div class="mb-8 mt-6 flex flex-row lg:mb-0 lg:mt-0">
-        <a href="" class="mr-4 transition hover:text-gray-400">
-          <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.25C9.4791 2.25005 7.05619 3.22647 5.23968 4.97439C3.42317 6.72231 2.35426 9.10586 2.25723 11.6249C2.1602 14.1439 3.0426 16.6026 4.71928 18.4851C6.39595 20.3676 8.73657 21.5275 11.25 21.7214V14.2501H9C8.80109 14.2501 8.61032 14.1711 8.46967 14.0304C8.32902 13.8898 8.25 13.699 8.25 13.5001C8.25 13.3012 8.32902 13.1104 8.46967 12.9698C8.61032 12.8291 8.80109 12.7501 9 12.7501H11.25V10.5001C11.2509 9.70472 11.5673 8.94218 12.1297 8.37977C12.6921 7.81736 13.4546 7.501 14.25 7.50009H15.75C15.9489 7.50009 16.1397 7.57911 16.2803 7.71976C16.421 7.86041 16.5 8.05118 16.5 8.25009C16.5 8.449 16.421 8.63977 16.2803 8.78042C16.1397 8.92107 15.9489 9.00009 15.75 9.00009H14.25C13.8523 9.00054 13.471 9.15872 13.1898 9.43993C12.9086 9.72114 12.7505 10.1024 12.75 10.5001V12.7501H15C15.1989 12.7501 15.3897 12.8291 15.5303 12.9698C15.671 13.1104 15.75 13.3012 15.75 13.5001C15.75 13.699 15.671 13.8898 15.5303 14.0304C15.3897 14.1711 15.1989 14.2501 15 14.2501H12.75V21.7214C15.2634 21.5275 17.604 20.3676 19.2807 18.4851C20.9574 16.6026 21.8398 14.1439 21.7427 11.6249C21.6457 9.10587 20.5768 6.72232 18.7603 4.9744C16.9438 3.22649 14.5209 2.25006 12 2.25Z" />
-          </svg>
-        </a>
-        <a href="" class="mx-4 transition hover:text-gray-400">
-          <svg class="fill-current" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" />
-            <path d="M16.125 2.625H7.875C6.4831 2.62658 5.14865 3.18021 4.16443 4.16443C3.18021 5.14865 2.62658 6.4831 2.625 7.875V16.125C2.62658 17.5169 3.18021 18.8513 4.16443 19.8356C5.14865 20.8198 6.4831 21.3734 7.875 21.375H16.125C17.5169 21.3734 18.8513 20.8198 19.8356 19.8356C20.8198 18.8513 21.3734 17.5169 21.375 16.125V7.875C21.3734 6.4831 20.8198 5.14865 19.8356 4.16443C18.8513 3.18021 17.5169 2.62658 16.125 2.625ZM12 16.5C11.11 16.5 10.24 16.2361 9.49993 15.7416C8.75991 15.2471 8.18314 14.5443 7.84254 13.7221C7.50195 12.8998 7.41283 11.995 7.58647 11.1221C7.7601 10.2492 8.18868 9.44736 8.81802 8.81802C9.44736 8.18868 10.2492 7.7601 11.1221 7.58647C11.995 7.41283 12.8998 7.50195 13.7221 7.84254C14.5443 8.18314 15.2471 8.75991 15.7416 9.49993C16.2361 10.24 16.5 11.11 16.5 12C16.4987 13.1931 16.0241 14.3369 15.1805 15.1805C14.3369 16.0241 13.1931 16.4987 12 16.5ZM16.875 8.25C16.6525 8.25 16.435 8.18402 16.25 8.0604C16.065 7.93679 15.9208 7.76109 15.8356 7.55552C15.7505 7.34995 15.7282 7.12375 15.7716 6.90552C15.815 6.68729 15.9222 6.48684 16.0795 6.3295C16.2368 6.17217 16.4373 6.06502 16.6555 6.02162C16.8738 5.97821 17.1 6.00049 17.3055 6.08564C17.5111 6.17078 17.6868 6.31498 17.8104 6.49998C17.934 6.68499 18 6.9025 18 7.125C18 7.42337 17.8815 7.70952 17.6705 7.9205C17.4595 8.13147 17.1734 8.25 16.875 8.25Z" />
-          </svg>
-        </a>
-        <a href="" class="mx-4 transition hover:text-gray-400">
-          <svg class="fill-current" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21.5952 12.4998C22.1776 11.988 22.5489 11.2779 22.6367 10.5076C22.7245 9.73723 22.5226 8.96177 22.0703 8.33205C21.618 7.70233 20.9476 7.2634 20.1895 7.10064C19.4315 6.93788 18.64 7.06293 17.969 7.45147V5.46854C17.9694 4.83357 17.7763 4.21356 17.4153 3.69117C17.0544 3.16878 16.5427 2.76884 15.9486 2.54466C15.3546 2.32048 14.7063 2.28271 14.0902 2.4364C13.4741 2.59009 12.9195 2.92793 12.5003 3.40487C11.9885 2.82243 11.2784 2.45118 10.5081 2.36336C9.73772 2.27555 8.96225 2.47744 8.33253 2.92976C7.70282 3.38208 7.26388 4.05249 7.10112 4.81054C6.93836 5.5686 7.06342 6.36009 7.45197 7.03104H5.46904C4.83406 7.03063 4.21405 7.22379 3.69166 7.58476C3.16927 7.94573 2.76933 8.45736 2.54515 9.05144C2.32097 9.64552 2.28321 10.2938 2.4369 10.9099C2.59059 11.526 2.92843 12.0806 3.40538 12.4998C2.82293 13.0115 2.45168 13.7217 2.36386 14.492C2.27603 15.2624 2.47792 16.0378 2.93024 16.6676C3.38257 17.2973 4.05297 17.7362 4.81103 17.899C5.56909 18.0617 6.36059 17.9367 7.03154 17.5481V19.531C7.03113 20.166 7.22428 20.786 7.58525 21.3084C7.94622 21.8308 8.45785 22.2307 9.05193 22.4549C9.64602 22.6791 10.2943 22.7169 10.9104 22.5632C11.5265 22.4095 12.0811 22.0717 12.5003 21.5947C13.012 22.1772 13.7222 22.5484 14.4925 22.6362C15.2629 22.724 16.0383 22.5221 16.668 22.0698C17.2978 21.6175 17.7367 20.9471 17.8995 20.189C18.0622 19.431 17.9372 18.6395 17.5486 17.9685H19.5315C20.1665 17.969 20.7865 17.7758 21.3089 17.4148C21.8313 17.0539 22.2312 16.5422 22.4554 15.9481C22.6796 15.3541 22.7174 14.7058 22.5637 14.0897C22.41 13.4736 22.0721 12.919 21.5952 12.4998ZM8.59404 5.46854C8.59404 5.05414 8.75866 4.65671 9.05168 4.36369C9.34471 4.07066 9.74214 3.90604 10.1565 3.90604C10.5709 3.90604 10.9684 4.07066 11.2614 4.36369C11.5544 4.65671 11.719 5.05414 11.719 5.46854V7.03104H10.1565C9.74228 7.03057 9.34513 6.8658 9.05221 6.57287C8.75928 6.27995 8.59451 5.8828 8.59404 5.46854ZM3.90654 10.156C3.90701 9.74179 4.07178 9.34463 4.36471 9.05171C4.65763 8.75879 5.05478 8.59402 5.46904 8.59354H10.1565C10.5708 8.59402 10.9679 8.75879 11.2609 9.05171C11.5538 9.34463 11.7186 9.74179 11.719 10.156V11.7185H5.46904C5.05478 11.7181 4.65763 11.5533 4.36471 11.2604C4.07178 10.9675 3.90701 10.5703 3.90654 10.156ZM16.4065 19.531C16.4065 19.9454 16.2419 20.3429 15.9489 20.6359C15.6559 20.9289 15.2584 21.0935 14.844 21.0935C14.4296 21.0935 14.0322 20.9289 13.7392 20.6359C13.4462 20.3429 13.2815 19.9454 13.2815 19.531V17.9685H14.844C15.2583 17.969 15.6554 18.1338 15.9484 18.4267C16.2413 18.7196 16.4061 19.1168 16.4065 19.531ZM19.5315 16.406H14.844C14.4298 16.4056 14.0326 16.2408 13.7397 15.9479C13.4468 15.655 13.282 15.2578 13.2815 14.8435V13.281H19.5315C19.9459 13.281 20.3434 13.4457 20.6364 13.7387C20.9294 14.0317 21.094 14.4291 21.094 14.8435C21.094 15.2579 20.9294 15.6554 20.6364 15.9484C20.3434 16.2414 19.9459 16.406 19.5315 16.406Z" />
-          </svg>
-        </a>
-        <a href="" class="mx-4 transition hover:text-gray-400">
-          <svg class="fill-current" width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.9883 7.58391L21.0426 10.5297C20.4545 17.354 14.6994 22.6565 7.81089 22.6565C6.39249 22.6565 5.22357 22.4316 4.33651 21.9881C3.62063 21.6301 3.32738 21.246 3.25461 21.1367C3.18933 21.0388 3.14702 20.9274 3.13083 20.8108C3.11464 20.6943 3.12499 20.5755 3.16112 20.4635C3.19724 20.3515 3.2582 20.2491 3.33945 20.164C3.42069 20.0789 3.52012 20.0132 3.63031 19.9718C3.65544 19.9624 5.95923 19.0775 7.44821 17.3929C6.52206 16.7334 5.70694 15.9305 5.0335 15.0145C3.69483 13.1977 2.27901 10.0427 3.13598 5.32923C3.16148 5.18895 3.22489 5.05833 3.31932 4.95152C3.41376 4.8447 3.53562 4.76577 3.67171 4.72326C3.8078 4.68075 3.95293 4.67629 4.09137 4.71037C4.22981 4.74445 4.35629 4.81575 4.4571 4.91657C4.49153 4.9509 7.74246 8.15592 11.7166 9.19118L11.7171 8.59361C11.7256 7.34276 12.2303 6.14644 13.1204 5.26759C14.0105 4.38874 15.2132 3.89929 16.4641 3.90682C17.2766 3.91808 18.0724 4.1399 18.7737 4.55063C19.4749 4.96136 20.0576 5.54694 20.4649 6.25019L23.4359 6.25024C23.5904 6.25024 23.7414 6.29606 23.8699 6.3819C23.9984 6.46774 24.0985 6.58975 24.1577 6.73251C24.2168 6.87526 24.2323 7.03234 24.2021 7.18389C24.172 7.33543 24.0976 7.47464 23.9883 7.58391Z" />
-          </svg>
-        </a>
-      </div>
-      <p class="font-inter text-sm text-gray-500 lg:mt-0">© Copyright 2021. All rights reserved.</p>
-    </div>
-  </div>
-</section>
-
-
-<div style="display: none;">
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BE6037ZLBE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BE6037ZLBE');
-</script>
-</div>
+                    categories.forEach(cat => {
+                        cat.classList.remove('active');
+                        if (cat.id === targetId) {
+                            cat.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
+
